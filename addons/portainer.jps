@@ -31,7 +31,7 @@ onInstall:
         volumes="-v /var/run/docker.sock:/var/run/docker.sock -v /opt/portainer:/data -v $home/.ssh/certs:/certs"
         portainer="portainer/portainer --admin-password $password --ssl --sslcert /certs/portainer.crt --sslkey /certs/portainer.key"
         docker run -d -p ${settings.port}:9000 --restart always $volumes $portainer
-  - elif ('${settings.mode}' == 'swarm'):
+  - elif ('${settings.mode1}' == 'swarm'):
       log: test
   - if (${settings.port} == 443): 
       install-LE
